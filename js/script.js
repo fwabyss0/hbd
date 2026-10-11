@@ -837,7 +837,7 @@ function initApologyButton() {
 const RELEASE_TIMESTAMP = 1793124900000; // 2026-10-27T18:15:00Z in milliseconds
 
 // Enable testing mode by setting this to true (resets after page reload)
-const TESTING_MODE = false;
+const TESTING_MODE = true; // SET TO FALSE BEFORE DEPLOYING
 
 function initCountdown() {
   const overlay = document.getElementById('countdown-overlay');
