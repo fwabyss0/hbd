@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday, Asmita — A gift from Abyss</title>
+  <meta name="description" content="A personal, romantic birthday gift website for Asmita, created by Abyss.">
+
+  <!-- Favicon -->
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💌</text></svg>">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <!-- ======================================================================
+       1. OPENING INVITATION OVERLAY
+       An intimate, sealed envelope entrance
+       ====================================================================== -->
+  <div id="invitation-overlay" class="invitation-overlay" role="dialog" aria-modal="true"
+    aria-labelledby="invitation-title">
+    <div class="flower-rain" aria-hidden="true">
+      <span>✿</span><span>❀</span><span>✦</span><span>✿</span><span>❀</span><span>✧</span>
+      <span>✿</span><span>❀</span><span>✦</span><span>✿</span><span>❀</span><span>✧</span>
+    </div>
+    <div class="birthday-pop" aria-hidden="true">Happy Birthday, Asmita ♡</div>
+    <div class="invitation-card">
+      <div class="envelope-wax-seal" aria-hidden="true">A</div>
+      <p class="invitation-tag">For Asmita</p>
+      <h1 id="invitation-title" class="invitation-heading">Hey, Asmita.<br>I made a little something for you.</h1>
+      <p class="invitation-text">
+        A small, quiet space built with care — just to celebrate you on your birthday, and to remind you of how much
+        light you bring into this world.
+      </p>
+      <div class="invitation-actions">
+        <button id="btn-open-invitation" class="btn-open" aria-label="Open your surprise">
+          <span>Open Your Surprise</span>
+          <span aria-hidden="true">♡</span>
+        </button>
+        <button id="btn-skip-invitation" class="btn-skip" aria-label="Skip intro and view directly">
+          Skip to website
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================================================================
+       FLOATING TOP NAVIGATION
+       ====================================================================== -->
+  <nav class="site-nav" aria-label="Main navigation">
+    <a href="#hero" class="nav-brand">Asmita <span>♡</span></a>
+    <ul class="nav-links">
+      <li><a href="#story" class="nav-link">Our Story</a></li>
+      <li><a href="#gallery" class="nav-link">Memories</a></li>
+      <li><a href="#wishes" class="nav-link">Wishes</a></li>
+      <li><a href="#letter" class="nav-link">Letter</a></li>
+    </ul>
+    <button id="nav-reopen-btn" class="nav-reopen-btn" aria-label="Replay invitation envelope">
+      Invitation 💌
+    </button>
+  </nav>
+
+  <!-- ======================================================================
+       2. BIRTHDAY HERO SECTION
+       Cinematic center portrait of Asmita with headline
+       ====================================================================== -->
+  <header id="hero" class="hero-section">
+    <div class="container">
+      <div class="hero-grid">
+
+        <!-- Hero Text Content -->
+        <div class="hero-content">
+          <span class="hero-eyebrow">A Special Day</span>
+          <h1 class="hero-title">Happy Birthday,<br><em>Asmita.</em></h1>
+          <p class="hero-subtitle">
+            A little corner of the internet, made especially for you. Built to celebrate who you are, the kindness you
+            carry, and the year ahead.
+          </p>
+          <div class="hero-signature">
+            <span class="hero-signature-text">— Abyss ♡</span>
+            <span class="hero-signature-date">With all my heart</span>
+          </div>
+        </div>
+
+        <!-- Hero Photograph Frame -->
+        <div class="hero-portrait-wrapper">
+          <div class="hero-frame">
+            <div class="washi-tape" aria-hidden="true"></div>
+            <div class="hero-img-container">
+              <img src="assets/images/hero.png" data-fallback="assets/images/hero.png" alt="Portrait of Asmita"
+                class="hero-img" loading="eager">
+            </div>
+            <div class="hero-frame-caption">
+              <span>Portrait</span>
+              <span class="annotation">The birthday girl</span>
+            </div>
+          </div>
+          <div class="hero-floating-badge" aria-hidden="true">Today is yours ✦</div>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- ======================================================================
+       3. A REFLECTION ON THE STORY
+       Honest, emotionally mature reflection: Long distance, missed dates, meeting after
+       ====================================================================== -->
+  <section id="story" class="story-section" aria-labelledby="story-title">
+    <div class="container-narrow">
+      <div class="story-header">
+        <span class="section-label">Distance &amp; Honesty</span>
+        <h2 id="story-title" class="section-title">Between the Miles and the Silence</h2>
+      </div>
+
+      <div class="story-body">
+        <div class="washi-tape" aria-hidden="true"></div>
+        <p>
+          For a long time, everything we had lived in phone screens, late-night audio notes, and the constant ache of
+          geography. We spent months sharing our thoughts across miles, building an entire world out of words.
+        </p>
+
+        <p>
+          We never got to experience the simple things that most people take for granted — we never had a proper first
+          date, never took a spontaneous weekend trip together, and never got to walk side by side down a quiet street
+          while we were together.
+        </p>
+
+        <div class="story-quote">
+          “We didn’t get the timing right, but that doesn’t mean what was felt wasn't real.”
+        </div>
+
+        <p>
+          When we finally met in person, it was after the breakup. Life had already moved our paths in different
+          directions. And yet, seeing you face to face wasn’t about reopening wounds — it was a quiet reminder of how
+          genuine you are, how deeply you care, and why you will always matter to me.
+        </p>
+
+        <p>
+          Today isn't about looking backward with regret, and it isn't an attempt to rewrite where things stand. It is
+          simply me taking a moment to honor the person you are, and to tell you that having known you is something I
+          will always carry with gratitude.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================================
+       4. PHOTO GALLERY (SCRAPBOOK EXHIBITION)
+       8 responsive polaroid cards with lightbox view & fallback SVGs
+       ====================================================================== -->
+  <section id="gallery" class="gallery-section" aria-labelledby="gallery-title">
+    <div class="container">
+      <div class="gallery-header">
+        <div>
+          <span class="section-label">Photographs &amp; Memories</span>
+          <h2 id="gallery-title" class="section-title">Frames of You</h2>
+        </div>
+        <p class="gallery-hint">
+          <span aria-hidden="true">✦</span> Click any photograph to view in full
+        </p>
+      </div>
+
+      <div class="gallery-grid" role="list">
+
+        <!-- Card 1 -->
+        <article class="polaroid-card" role="listitem" tabindex="0" aria-label="View video 1: A Rare Smile">
+          <div class="washi-tape" aria-hidden="true"></div>
+          <div class="polaroid-image-wrap">
+            <video src="assets/images/photo-1.mp4" data-fallback="assets/images/photo-1.mp4" alt="Asmita smiling"
+              class="polaroid-img" autoplay playsinline muted loop></video>
+          </div>
+          <div class="polaroid-caption-wrap">
+            <h3 class="polaroid-title">A Rare Smile</h3>
+            <span class="polaroid-note">Warmth in every glance</span>
+          </div>
+        </article>
+
+        <!-- Card 2 -->
+        <article class="polaroid-card" role="listitem" tabindex="0"
+          aria-label="View photo 2: Sunlight & Quiet Thoughts">
+          <div class="washi-tape" aria-hidden="true"></div>
+          <div class="polaroid-image-wrap">
+            <video src="assets/images/photo-2.mp4" data-fallback="assets/images/photo-2.mp4"
+              alt="Asmita in natural light" class="polaroid-img" autoplay playsinline muted loop loading="lazy"></video>
+          </div>
+          <div class="polaroid-caption-wrap">
+            <h3 class="polaroid-title">Sunlight &amp; Thoughts</h3>
+            <span class="polaroid-note">Quiet, effortless grace</span>
+          </div>
+        </article>
+
+        <!-- Card 3 -->
+        <article class="polaroid-card" role="listitem" tabindex="0" aria-label="View photo 3: Just Asmita">
+          <div class="washi-tape" aria-hidden="true"></div>
+          <div class="polaroid-image-wrap">
+            <img src="assets/images/photo-3.jpg" data-fallback="assets/images/photo-3.svg"
+              alt="A favorite candid photograph of Asmita" class="polaroid-img" loading="lazy">
+          </div>
+          <div class="polaroid-caption-wrap">
+            <h3 class="polaroid-title">Just Asmita</h3>
+            <span class="polaroid-note">A favorite little glimpse of you</span>
+          </div>
+        </article>
+
+        <!-- Card 4 -->
+        <article class="polaroid-card" role="listitem" tabindex="0" aria-label="View photo 4: Across the Miles">
+          <div class="washi-tape" aria-hidden="true"></div>
+          <div class="polaroid-image-wrap">
+            <img src="assets/images/photo-4.jpg" data-fallback="assets/images/photo-4.svg"
+              alt="Memory across the distance" class="polaroid-img" loading="lazy">
+          </div>
+          <div class="polaroid-caption-wrap">
+            <h3 class="polaroid-title">Across the Miles</h3>
+            <span class="polaroid-note">Closer than the map showed</span>
+          </div>
+        </article>
+
+        <!-- Card 5 -->
+        <article class="polaroid-card" role="listitem" tabindex="0"
+          aria-label="View photo 5: When Words Were Everything">
+          <div class="washi-tape" aria-hidden="true"></div>
+          <div class="polaroid-image-wrap">
+            <img src="assets/images/photo-5.jpg" data-fallback="assets/images/photo-5.svg" alt="Portrait of Asmita"
+              class="polaroid-img" loading="lazy">
+          </div>
+          <div class="polaroid-caption-wrap">
+            <h3 class="polaroid-title">Words Were Everything</h3>
+            <span class="polaroid-note">Late night phone calls</span>
+          </div>
+        </article>
+
+        <!-- Card 6 -->
+        <article class="polaroid-card" role="listitem" tabindex="0" aria-label="View photo 6: The Day We Finally Met">
+          <div class="washi-tape" aria-hidden="true"></div>
+          <div class="polaroid-image-wrap">
+            <img src="assets/images/photo-6.jpg" data-fallback="assets/images/photo-6.svg"
+              alt="Photograph after meeting in person" class="polaroid-img" loading="lazy">
+          </div>
+          <div class="polaroid-caption-wrap">
+            <h3 class="polaroid-title">Finally In Person</h3>
+            <span class="polaroid-note">Different timing, real all the same</span>
+          </div>
+        </article>
+
+        <!-- Card 7 -->
+        <article class="polaroid-card" role="listitem" tabindex="0" aria-label="View photo 7: Quiet Grace & Strength">
+          <div class="washi-tape" aria-hidden="true"></div>
+          <div class="polaroid-image-wrap">
+            <img src="assets/images/photo-7.jpg" data-fallback="assets/images/photo-7.svg"
+              alt="Asmita showing her strength and elegance" class="polaroid-img" loading="lazy">
+          </div>
+          <div class="polaroid-caption-wrap">
+            <h3 class="polaroid-title">Grace &amp; Strength</h3>
+            <span class="polaroid-note">Unshakable resilience</span>
+          </div>
+        </article>
+
+        <!-- Card 8 -->
+        <article class="polaroid-card" role="listitem" tabindex="0" aria-label="View photo 8: A Brighter Horizon">
+          <div class="washi-tape" aria-hidden="true"></div>
+          <div class="polaroid-image-wrap">
+            <video src="assets/images/photo-8.mp4" data-fallback="assets/images/photo-8.mp4" alt="Asmita smiling"
+              class="polaroid-img" autoplay playsinline muted loop></video>
+          </div>
+          <div class="polaroid-caption-wrap">
+            <h3 class="polaroid-title">A Brighter Horizon</h3>
+            <span class="polaroid-note">All that is yet to come</span>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================================
+       LIGHTBOX MODAL
+       Accessible fullscreen image preview
+       ====================================================================== -->
+  <div id="lightbox-modal" class="lightbox-modal" role="dialog" aria-modal="true" aria-hidden="true"
+    aria-label="Photo Lightbox">
+    <div class="lightbox-dialog">
+      <button id="lightbox-close" class="lightbox-close" aria-label="Close photo preview">✕</button>
+
+      <button id="lightbox-prev" class="lightbox-btn lightbox-prev" aria-label="Previous photo">‹</button>
+      <button id="lightbox-next" class="lightbox-btn lightbox-next" aria-label="Next photo">›</button>
+
+      <div class="lightbox-content-box">
+        <div class="lightbox-image-holder">
+          <img id="lightbox-img" src="assets/images/photo-1.svg" data-fallback="assets/images/photo-1.svg"
+            alt="Preview">
+          <video id="lightbox-video" src="" data-fallback="assets/images/photo-1.mp4" class="lightbox-media" autoplay
+            playsinline muted loop style="display:none;"></video>
+        </div>
+        <div class="lightbox-details">
+          <h4 id="lightbox-title" class="lightbox-title">A Rare Smile</h4>
+          <p id="lightbox-note" class="lightbox-note">Warmth in every glance</p>
+          <span id="lightbox-counter" class="lightbox-counter">1 / 8</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================================================================
+       5. BIRTHDAY WISHES SECTION
+       Thoughtful, sincere wishes for happiness, peace, growth, confidence
+       ====================================================================== -->
+  <section id="wishes" class="wishes-section" aria-labelledby="wishes-title">
+    <div class="container">
+      <div class="wishes-header">
+        <span class="section-label">Wishes for Your Year</span>
+        <h2 id="wishes-title" class="section-title">What I Hope This Year Holds for You</h2>
+      </div>
+
+      <div class="wishes-grid">
+
+        <div class="wish-card">
+          <div class="wish-icon" aria-hidden="true">✦</div>
+          <h3 class="wish-title">Unshakable Peace</h3>
+          <p class="wish-text">
+            I hope your days are quieter on the inside — that overthinking takes a backseat, and that your mind feels
+            like a safe, calm home to return to.
+          </p>
+        </div>
+
+        <div class="wish-card">
+          <div class="wish-icon" aria-hidden="true">☼</div>
+          <h3 class="wish-title">New Horizons</h3>
+          <p class="wish-text">
+            I hope you get to travel to new cities, walk unfamiliar paths, and collect memories that remind you how vast
+            and beautiful the world truly is.
+          </p>
+        </div>
+
+        <div class="wish-card">
+          <div class="wish-icon" aria-hidden="true">❧</div>
+          <h3 class="wish-title">Gentle People</h3>
+          <p class="wish-text">
+            I hope you are surrounded by people who treat your heart with gentleness, who listen when you speak, and who
+            celebrate you without you having to ask.
+          </p>
+        </div>
+
+        <div class="wish-card">
+          <div class="wish-icon" aria-hidden="true">✧</div>
+          <h3 class="wish-title">Fierce Confidence</h3>
+          <p class="wish-text">
+            I hope you see your own brilliance clearly. You doubt yourself far more than anyone who looks at you ever
+            could. Trust what you bring to the table.
+          </p>
+        </div>
+
+        <div class="wish-card">
+          <div class="wish-icon" aria-hidden="true">☁</div>
+          <h3 class="wish-title">Space to Rest</h3>
+          <p class="wish-text">
+            I hope you permit yourself to slow down. Not every moment needs to be productive, and you don’t have to
+            carry everyone else’s feelings on your shoulders.
+          </p>
+        </div>
+
+        <div class="wish-card">
+          <div class="wish-icon" aria-hidden="true">♡</div>
+          <h3 class="wish-title">Pure, Easy Laughter</h3>
+          <p class="wish-text">
+            The kind that makes your eyes crinkle and your chest ache in the best way. You deserve countless moments
+            that make you genuinely glad to be here.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================================
+       6. PERSONAL LETTER SECTION
+       (Easily editable section: Sincere letter from Abyss to Asmita)
+       ====================================================================== -->
+  <section id="letter" class="letter-section" aria-labelledby="letter-title">
+    <div class="container-narrow">
+      <div class="letter-wrapper">
+        <article class="letter-paper">
+          <div class="washi-tape" aria-hidden="true"></div>
+
+          <div class="letter-meta">
+            <h2 id="letter-title" class="letter-salutation">To Asmita,</h2>
+            <span class="letter-date">On Your Birthday</span>
+          </div>
+
+          <div class="letter-content">
+            <p>
+              Happy Birthday.
+            </p>
+
+            <p>
+              I wanted to give you something genuine this year — something that isn’t wrapped up in expectations,
+              demands, or awkwardness. Just a space dedicated to you, because today is your day, and you deserve to feel
+              celebrated.
+            </p>
+
+            <p>
+              I won’t pretend that everything between us was simple. Long distance wasn't kind to us. We spent so much
+              time holding onto conversations through a screen, wishing for normal moments that never arrived in the way
+              we hoped. And when we finally got to see each other in person, it was after things had already come to an
+              end.
+            </p>
+
+            <p>
+              I still love you. That truth doesn't just disappear, and I won't dishonor what we shared by pretending
+              otherwise. But I am not writing this to ask you for anything. I'm not asking you to come back, I’m not
+              asking for a conversation, and you do not owe me any reply to this page. Love, at its best, isn’t a
+              transaction. It’s simply wishing someone everything good, even from afar.
+            </p>
+
+            <p>
+              I just wanted you to know that having known you made a difference in my life. You taught me things about
+              patience, about vulnerability, and about how deeply one person can care for another across thousands of
+              miles.
+            </p>
+
+            <p>
+              I hope this next year of your life treats you gently. I hope you achieve every small goal you keep private
+              in your notes, that you find peace in the choices you make, and that you never forget how worthy of love
+              and happiness you are.
+            </p>
+
+            <p>
+              Thank you for being part of my story, Asmita. I wish you the happiest of birthdays.
+            </p>
+          </div>
+
+          <div class="letter-signoff">
+            <span class="letter-signoff-words">Always with love and respect,</span>
+            <span class="letter-signature-name">Abyss ♡</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================================
+       7. CLOSING SECTION & FINAL MESSAGE
+       Understated, memorable ending with closing photo
+       ====================================================================== -->
+  <section id="ending" class="ending-section" aria-labelledby="ending-title">
+    <div class="container">
+
+      <div class="ending-portrait-wrap">
+        <div class="ending-frame">
+          <div class="washi-tape" aria-hidden="true"></div>
+          <div class="ending-img-box">
+            <img src="assets/images/closing.jpg" data-fallback="assets/images/closing.svg"
+              alt="Closing photograph of Asmita" class="ending-img" loading="lazy">
+          </div>
+        </div>
+      </div>
+
+      <div class="ending-message">
+        <h2 id="ending-title" class="ending-headline">
+          “I hope this year is gentle with you, full of new things to love, and kinder than you expect.”
+        </h2>
+
+        <p class="ending-subtext">
+          May the road ahead be bright, peaceful, and filled with everything your heart has been quietly asking for.
+        </p>
+
+        <p class="ending-sign">Happy Birthday, Asmita.</p>
+        <p class="ending-signature-author">— Abyss ♡</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ======================================================================
+       8. COMPACT FLOATING MUSIC PLAYER
+       Local audio: assets/music/song.mp3 (with ambient audio chime fallback)
+       ====================================================================== -->
+  <aside id="music-player-bar" class="music-player-bar" aria-label="Music Player">
+    <audio id="bg-audio" src="assets/music/song.mp3" preload="metadata"></audio>
+    <button id="music-toggle-btn" class="music-toggle-btn" aria-label="Play background music">
+      &#9654;
+    </button>
+    <div class="music-info">
+      <span id="music-title" class="music-title">A Melody For You</span>
+      <span id="music-status" class="music-status">Click to listen</span>
+    </div>
+    <div class="music-bars" aria-hidden="true">
+      <span class="music-bar"></span>
+      <span class="music-bar"></span>
+      <span class="music-bar"></span>
+    </div>
+  </aside>
+
+  <!-- Toast Notice for Missing Audio -->
+  <div id="audio-notice" class="audio-notice" role="status" aria-live="polite"></div>
+
+  <!-- ======================================================================
+       FOOTER
+       ====================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <p>Created with love by Abyss for Asmita</p>
+      <p class="footer-note">Designed as a private, static birthday gift &bull; Built with pure HTML, CSS &amp;
+        JavaScript</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/script.js"></script>
+</body>
+
+</html>
