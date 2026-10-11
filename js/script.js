@@ -4,12 +4,89 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
+  initTypewriter();
   initInvitation();
   initImageFallbacks();
+  initStoryBook();
   initGalleryLightbox();
   initMusicPlayer();
   initSmoothScroll();
 });
+
+/* ==========================================================================
+   0. TYPEWRITER BIRTHDAY BANNER
+   ========================================================================== */
+function initTypewriter() {
+  const textEl = document.getElementById('typewriter-text');
+  const fullText = 'Happy Birthday, Asmita ♡';
+  if (!textEl) return;
+  let index = 0;
+  let deleting = false;
+
+  function tick() {
+    if (!deleting) {
+      index++;
+      textEl.textContent = fullText.slice(0, index);
+      if (index >= fullText.length) {
+        deleting = true;
+        setTimeout(tick, 2600);
+        return;
+      }
+      setTimeout(tick, 105);
+    } else {
+      index--;
+      textEl.textContent = fullText.slice(0, index);
+      if (index <= 0) {
+        deleting = false;
+        setTimeout(tick, 650);
+        return;
+      }
+      setTimeout(tick, 55);
+    }
+  }
+
+  tick();
+}
+
+/* ==========================================================================
+   0.5 STORY BOOK PAGES
+   ========================================================================== */
+function initStoryBook() {
+  const pages = Array.from(document.querySelectorAll('.book-page'));
+  const indicators = Array.from(document.querySelectorAll('.page-indicators .indicator'));
+  const prevBtn = document.querySelector('.prev-page');
+  const nextBtn = document.querySelector('.next-page');
+  if (!pages.length || !prevBtn || !nextBtn) return;
+
+  let current = 0;
+
+  function showPage(index) {
+    current = Math.max(0, Math.min(index, pages.length - 1));
+    pages.forEach((page, i) => page.classList.toggle('active', i === current));
+    indicators.forEach((indicator, i) => indicator.classList.toggle('active', i === current));
+    prevBtn.disabled = current === 0;
+    nextBtn.disabled = current === pages.length - 1;
+  }
+
+  prevBtn.addEventListener('click', () => showPage(current - 1));
+  nextBtn.addEventListener('click', () => showPage(current + 1));
+  indicators.forEach((indicator, i) => {
+    indicator.addEventListener('click', () => showPage(i));
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key !== 'ArrowLeft' && e.key !== 'ArrowRight') return;
+    const story = document.querySelector('#story');
+    if (!story) return;
+    const rect = story.getBoundingClientRect();
+    const visible = rect.top < window.innerHeight && rect.bottom > 0;
+    if (!visible) return;
+    if (e.key === 'ArrowLeft') showPage(current - 1);
+    if (e.key === 'ArrowRight') showPage(current + 1);
+  });
+
+  showPage(0);
+}
 
 /* ==========================================================================
    1. INVITATION OVERLAY
@@ -319,55 +396,44 @@ function initMusicPlayer() {
   const audioNotice = document.getElementById('audio-notice');
 
   let isPlaying = false;
-  let synthActive = false;
   let audioCtx = null;
-  let synthTimer = null;
 
   if (!toggleBtn) return;
 
-  // Gentle romantic piano chime synthesis via Web Audio API
-  function playSynthMelody() {
+  // Happy Birthday tune synthesis via Web Audio API (fallback when no song.mp3)
+  function playBirthdayTune() {
     try {
       const AudioContext = window.AudioContext || window.webkitAudioContext;
       if (!AudioContext) return;
       if (!audioCtx) audioCtx = new AudioContext();
       if (audioCtx.state === 'suspended') audioCtx.resume();
 
-      // Delicate pentatonic notes (E4, G#4, B4, C#5, E5)
-      const notes = [329.63, 415.30, 493.88, 554.37, 659.25, 493.88];
-      let step = 0;
+      // Happy Birthday notes: C4 C4 D4 C4 F4 E4 | C4 C4 D4 C4 G4 F4 | C4 C4 C5 A4 F4 E4 D4 | A#4 A#4 A4 F4 G4 F4
+      const notes = [261.63, 261.63, 293.66, 261.63, 349.23, 329.63, 261.63, 261.63, 293.66, 261.63, 392.00, 349.23, 261.63, 261.63, 523.25, 440.00, 349.23, 329.63, 293.66, 466.16, 466.16, 440.00, 349.23, 392.00, 349.23];
+      const lengths = [0.2, 0.2, 0.4, 0.4, 0.4, 0.8, 0.2, 0.2, 0.4, 0.4, 0.4, 0.8, 0.2, 0.2, 0.4, 0.4, 0.4, 0.4, 0.8, 0.2, 0.2, 0.4, 0.4, 0.4, 0.8];
+      let time = audioCtx.currentTime + 0.05;
 
-      function triggerChime() {
-        if (!synthActive) return;
+      notes.forEach((freq, index) => {
         const osc = audioCtx.createOscillator();
         const gain = audioCtx.createGain();
-
         osc.type = 'sine';
-        osc.frequency.setValueAtTime(notes[step % notes.length], audioCtx.currentTime);
-
-        gain.gain.setValueAtTime(0.08, audioCtx.currentTime);
-        gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 2.2);
-
+        osc.frequency.setValueAtTime(freq, time);
+        gain.gain.setValueAtTime(0.001, time);
+        gain.gain.exponentialRampToValueAtTime(0.1, time + 0.03);
+        gain.gain.exponentialRampToValueAtTime(0.001, time + lengths[index]);
         osc.connect(gain);
         gain.connect(audioCtx.destination);
-
-        osc.start();
-        osc.stop(audioCtx.currentTime + 2.3);
-
-        step++;
-        synthTimer = setTimeout(triggerChime, 2200);
-      }
-
-      synthActive = true;
-      triggerChime();
+        osc.start(time);
+        osc.stop(time + lengths[index] + 0.05);
+        time += lengths[index] + 0.05;
+      });
     } catch (err) {
-      console.warn('AudioContext not available:', err);
+      console.warn('Birthday tune unavailable:', err);
     }
   }
 
-  function stopSynthMelody() {
-    synthActive = false;
-    if (synthTimer) clearTimeout(synthTimer);
+  function stopBirthdayTune() {
+    // No loop to stop; tune plays once
   }
 
   function setPlayingState(playing, statusText = '') {
@@ -400,18 +466,18 @@ function initMusicPlayer() {
         audio.play().then(() => {
           setPlayingState(true, 'Now playing');
         }).catch((err) => {
-          // If local mp3 is not yet placed, seamlessly play ambient synth chime
-          playSynthMelody();
-          setPlayingState(true, 'Ambient Melody');
+          // If local mp3 is not yet placed, play Happy Birthday tune
+          playBirthdayTune();
+          setPlayingState(true, 'Happy Birthday ♡');
           showToastNotice('Add your song.mp3 in assets/music/ to play your custom track.');
         });
       } else {
-        playSynthMelody();
-        setPlayingState(true, 'Ambient Melody');
+        playBirthdayTune();
+        setPlayingState(true, 'Happy Birthday ♡');
       }
     } else {
       if (audio) audio.pause();
-      stopSynthMelody();
+      stopBirthdayTune();
       setPlayingState(false, 'Paused');
     }
   });

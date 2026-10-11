@@ -24,14 +24,22 @@
   <div id="invitation-overlay" class="invitation-overlay" role="dialog" aria-modal="true"
     aria-labelledby="invitation-title">
     <div class="flower-rain" aria-hidden="true">
-      <span>✿</span><span>❀</span><span>✦</span><span>✿</span><span>❀</span><span>✧</span>
-      <span>✿</span><span>❀</span><span>✦</span><span>✿</span><span>❀</span><span>✧</span>
+      <span>✿</span><span>❀</span><span>✾</span><span>✿</span><span>❁</span><span>✦</span><span>❀</span><span>✾</span><span>✧</span><span>❁</span>
+      <span>✿</span><span>❀</span><span>✾</span><span>✿</span><span>❁</span><span>✦</span><span>❀</span><span>✾</span><span>✧</span><span>❁</span>
+      <span>❀</span><span>✾</span><span>❁</span><span>✦</span><span>✿</span><span>❀</span><span>✾</span><span>✧</span><span>❁</span><span>✿</span>
+      <span>❁</span><span>✦</span><span>❀</span><span>✾</span><span>✧</span><span>✿</span><span>❁</span><span>✾</span><span>✿</span><span>❀</span>
     </div>
-    <div class="birthday-pop" aria-hidden="true">Happy Birthday, Asmita ♡</div>
+    <div class="birthday-banner" aria-hidden="true">
+      <div class="banner-glow"></div>
+      <span class="banner-text" id="typewriter-text"></span><span class="typewriter-cursor">|</span>
+      <div class="banner-sparkles" aria-hidden="true">
+        <span>✦</span><span>✧</span><span>✦</span><span>✧</span><span>✦</span>
+      </div>
+    </div>
     <div class="invitation-card">
       <div class="envelope-wax-seal" aria-hidden="true">A</div>
-      <p class="invitation-tag">For Asmita</p>
-      <h1 id="invitation-title" class="invitation-heading">Hey, Asmita.<br>I made a little something for you.</h1>
+      <h1 id="invitation-title" class="invitation-tag">For Asmita</h1>
+      <h2 class="invitation-heading">Hey, Asmita.<br>I made a little something for you.</h2>
       <p class="invitation-text">
         A small, quiet space built with care — just to celebrate you on your birthday, and to remind you of how much
         light you bring into this world.
@@ -107,44 +115,99 @@
   </header>
 
   <!-- ======================================================================
-       3. A REFLECTION ON THE STORY
+       3. A REFLECTION ON THE STORY (BOOK STYLE)
        Honest, emotionally mature reflection: Long distance, missed dates, meeting after
        ====================================================================== -->
   <section id="story" class="story-section" aria-labelledby="story-title">
     <div class="container-narrow">
       <div class="story-header">
         <span class="section-label">Distance &amp; Honesty</span>
-        <h2 id="story-title" class="section-title">Between the Miles and the Silence</h2>
+        <h2 id="story-title" class="section-title">Our Story</h2>
       </div>
 
-      <div class="story-body">
-        <div class="washi-tape" aria-hidden="true"></div>
-        <p>
-          For a long time, everything we had lived in phone screens, late-night audio notes, and the constant ache of
-          geography. We spent months sharing our thoughts across miles, building an entire world out of words.
-        </p>
+      <div class="book-container" role="region" aria-label="Story book">
+        <div class="book-spine" aria-hidden="true"></div>
 
-        <p>
-          We never got to experience the simple things that most people take for granted — we never had a proper first
-          date, never took a spontaneous weekend trip together, and never got to walk side by side down a quiet street
-          while we were together.
-        </p>
+        <button class="page-btn prev-page" aria-label="Previous page">‹</button>
+        <button class="page-btn next-page" aria-label="Next page">›</button>
 
-        <div class="story-quote">
-          “We didn’t get the timing right, but that doesn’t mean what was felt wasn't real.”
+        <div class="book-pages">
+          <!-- Page 1 -->
+          <div class="book-page active" data-page="1">
+            <div class="page-content">
+              <div class="washi-tape" aria-hidden="true"></div>
+              <h3 class="page-number">Chapter 1</h3>
+              <h2 class="page-title">Between the Miles</h2>
+              <div class="page-body">
+                <p>
+                  For a long time, everything we had lived in phone screens, late-night audio notes, and the constant ache of
+                  geography. We spent months sharing our thoughts across miles, building an entire world out of words.
+                </p>
+
+                <p>
+                  We never got to experience the simple things that most people take for granted — we never had a proper first
+                  date, never took a spontaneous weekend trip together, and never got to walk side by side down a quiet street
+                  while we were together.
+                </p>
+
+                <div class="story-quote">
+                  "We didn't get the timing right, but that doesn't mean what was felt wasn't real."
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Page 2 -->
+          <div class="book-page" data-page="2">
+            <div class="page-content">
+              <div class="washi-tape" aria-hidden="true"></div>
+              <h3 class="page-number">Chapter 2</h3>
+              <h2 class="page-title">After the Breakup</h2>
+              <div class="page-body">
+                <p>
+                  When we finally met in person, it was after the breakup. Life had already moved our paths in different
+                  directions. And yet, seeing you face to face wasn't about reopening wounds — it was a quiet reminder of how
+                  genuine you are, how deeply you care, and why you will always matter to me.
+                </p>
+
+                <p>
+                  That meeting wasn't about the past. It was about seeing the person you became, and recognizing something that
+                  never changed — your kindness, your strength, the light you carry even when you think no one is watching.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Page 3 -->
+          <div class="book-page" data-page="3">
+            <div class="page-content">
+              <div class="washi-tape" aria-hidden="true"></div>
+              <h3 class="page-number">Chapter 3</h3>
+              <h2 class="page-title">What I Carry With Me</h2>
+              <div class="page-body">
+                <p>
+                  Today isn't about looking backward with regret, and it isn't an attempt to rewrite where things stand. It is
+                  simply me taking a moment to honor the person you are, and to tell you that having known you is something I
+                  will always carry with gratitude.
+                </p>
+
+                <p>
+                  You taught me things about patience, about vulnerability, and about how deeply one person can care for another
+                  across thousands of miles. I won't forget that.
+                </p>
+              </div>
+              <div class="page-footer">
+                <span>— Abyss ♡</span>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <p>
-          When we finally met in person, it was after the breakup. Life had already moved our paths in different
-          directions. And yet, seeing you face to face wasn’t about reopening wounds — it was a quiet reminder of how
-          genuine you are, how deeply you care, and why you will always matter to me.
-        </p>
-
-        <p>
-          Today isn't about looking backward with regret, and it isn't an attempt to rewrite where things stand. It is
-          simply me taking a moment to honor the person you are, and to tell you that having known you is something I
-          will always carry with gratitude.
-        </p>
+        <div class="page-indicators" aria-label="Page indicators">
+          <span class="indicator active" data-page="1"></span>
+          <span class="indicator" data-page="2"></span>
+          <span class="indicator" data-page="3"></span>
+        </div>
       </div>
     </div>
   </section>
@@ -485,8 +548,8 @@
       &#9654;
     </button>
     <div class="music-info">
-      <span id="music-title" class="music-title">A Melody For You</span>
-      <span id="music-status" class="music-status">Click to listen</span>
+      <span id="music-title" class="music-title">Happy Birthday, Asmita ♡</span>
+      <span id="music-status" class="music-status">Click to play</span>
     </div>
     <div class="music-bars" aria-hidden="true">
       <span class="music-bar"></span>
