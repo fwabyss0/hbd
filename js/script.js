@@ -886,6 +886,13 @@ function initCountdown() {
     if (hoursEl) hoursEl.textContent = padZero(hours);
     if (minutesEl) minutesEl.textContent = padZero(minutes);
     if (secondsEl) secondsEl.textContent = padZero(seconds);
+
+    // Intensify animation for last 5 seconds
+    if (diff <= 5000 && !overlay.classList.contains('intense')) {
+      overlay.classList.add('intense');
+    } else if (diff > 5000 && overlay.classList.contains('intense')) {
+      overlay.classList.remove('intense');
+    }
   }
 
   function revealBirthdaySite() {
