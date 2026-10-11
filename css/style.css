@@ -2910,6 +2910,26 @@ a {
   opacity: 0.7;
 }
 
+.countdown-warning {
+  display: none;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  color: #ff4d6d;
+  margin-top: 1rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  animation: warningBlink 0.5s ease-in-out infinite;
+}
+
+.countdown-overlay.intense .countdown-warning {
+  display: block;
+}
+
+@keyframes warningBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
 @media (max-width: 480px) {
   .countdown-timer {
     gap: 0.3rem;

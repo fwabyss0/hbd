@@ -890,8 +890,10 @@ function initCountdown() {
     // Intensify animation for last 30 seconds
     if (diff <= 30000 && !overlay.classList.contains('intense')) {
       overlay.classList.add('intense');
+      if (secondsEl) secondsEl.style.color = '#ff4d6d';
     } else if (diff > 30000 && overlay.classList.contains('intense')) {
       overlay.classList.remove('intense');
+      if (secondsEl) secondsEl.style.color = '';
     }
   }
 
