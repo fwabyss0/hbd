@@ -837,7 +837,7 @@ function initApologyButton() {
 const RELEASE_TIMESTAMP = 1793124900000; // 2026-10-27T18:15:00Z in milliseconds
 
 // Enable testing mode by setting this to true (resets after page reload)
-const TESTING_MODE = true; // SET TO FALSE BEFORE DEPLOYING
+const TESTING_MODE = false;
 
 function initCountdown() {
   const overlay = document.getElementById('countdown-overlay');
@@ -887,10 +887,10 @@ function initCountdown() {
     if (minutesEl) minutesEl.textContent = padZero(minutes);
     if (secondsEl) secondsEl.textContent = padZero(seconds);
 
-    // Intensify animation for last 5 seconds
-    if (diff <= 5000 && !overlay.classList.contains('intense')) {
+    // Intensify animation for last 30 seconds
+    if (diff <= 30000 && !overlay.classList.contains('intense')) {
       overlay.classList.add('intense');
-    } else if (diff > 5000 && overlay.classList.contains('intense')) {
+    } else if (diff > 30000 && overlay.classList.contains('intense')) {
       overlay.classList.remove('intense');
     }
   }
