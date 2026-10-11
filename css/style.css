@@ -329,14 +329,26 @@ a {
 .flower-rain span:nth-child(23) { left: 96%; animation-delay: 5.2s; animation-duration: 9.3s; }
 .flower-rain span:nth-child(24) { left: 6%; animation-delay: 5.5s; animation-duration: 8.9s; }
 
+.invitation-stack {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(1.4rem, 4vh, 2.5rem);
+  width: min(94vw, 620px);
+  margin: 0 auto;
+  max-height: calc(100vh - 3rem);
+  overflow-y: auto;
+  padding: 0.5rem;
+}
+
 .birthday-banner {
-  position: absolute;
-  top: clamp(3.25rem, 10vh, 5.5rem);
-  left: 50%;
-  transform: translateX(-50%);
+  position: static;
+  transform: none;
   z-index: 2;
   text-align: center;
-  width: min(92vw, 620px);
+  width: 100%;
   animation: bannerFloat 3.5s ease-in-out infinite;
 }
 
@@ -404,7 +416,6 @@ a {
   width: min(92vw, 430px);
   background: var(--bg-parchment);
   color: var(--text-dark);
-  margin-top: 4.25rem;
   padding: clamp(1.4rem, 4.5vw, 2.25rem) clamp(1.15rem, 4vw, 2rem);
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-cinematic), 0 0 0 1px rgba(255, 255, 255, 0.1);
