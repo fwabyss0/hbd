@@ -723,6 +723,9 @@ const RELEASE_TIMESTAMP = 1793124900000; // 2026-10-27T18:15:00Z in milliseconds
 // Enable testing mode by setting this to true (resets after page reload)
 const TESTING_MODE = false;
 
+// Disable auto-unlock — countdown stays forever until manually enabled
+const LOCK_ENABLED = false;
+
 function initCountdown() {
   const overlay = document.getElementById('countdown-overlay');
   if (!overlay) return;
@@ -752,12 +755,20 @@ function initCountdown() {
     const diff = releaseTime - now;
 
     if (diff <= 0) {
-      // Release time reached - unlock the website
+      // Release time reached - unlock the website (only if lock is enabled)
       if (countdownInterval) {
         clearInterval(countdownInterval);
         countdownInterval = null;
       }
-      revealBirthdaySite();
+      if (LOCK_ENABLED) {
+        revealBirthdaySite();
+      } else {
+        // Show "00:00:00:00" as final state
+        if (daysEl) daysEl.textContent = '00';
+        if (hoursEl) hoursEl.textContent = '00';
+        if (minutesEl) minutesEl.textContent = '00';
+        if (secondsEl) secondsEl.textContent = '00';
+      }
       return;
     }
 
@@ -773,6 +784,7 @@ function initCountdown() {
   }
 
   function revealBirthdaySite() {
+    if (!LOCK_ENABLED) return; // Countdown stays locked
     overlay.classList.add('hidden');
     // Clean up after transition
     setTimeout(() => {
@@ -782,7 +794,7 @@ function initCountdown() {
 
   // Check if release time has already passed
   const now = Date.now();
-  if (now >= releaseTime) {
+  if (now >= releaseTime && LOCK_ENABLED) {
     revealBirthdaySite();
     return;
   }
