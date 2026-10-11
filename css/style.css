@@ -2663,3 +2663,21 @@ a {
     animation: none;
   }
 }
+
+/* Section burst animations */
+@keyframes sectionBurst {
+  0% {
+    opacity: 1;
+    transform: translate(0, 0) scale(0.5) rotate(0deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(var(--tx, 100px), var(--ty, -200px)) scale(1.5) rotate(180deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [style*="sectionBurst"] {
+    animation: none !important;
+  }
+}

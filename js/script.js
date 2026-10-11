@@ -702,7 +702,7 @@ function initScrollAnimations() {
     endingMessage.style.transition = 'opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.3s, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.3s';
   }
 
-  // Observer for all revealed elements
+  // Observer for all revealed elements with celebration bursts
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -710,27 +710,53 @@ function initScrollAnimations() {
         el.style.opacity = '1';
         el.style.transform = 'translateY(0) rotate(0deg) scale(1)';
         observer.unobserve(el);
+        
+        // Trigger celebration burst for each section
+        const section = el.closest('section');
+        if (section && !section.dataset.burstTriggered) {
+          section.dataset.burstTriggered = 'true';
+          createSectionBurst(section);
+        }
       }
     });
   }, {
-    threshold: 0.15,
-    rootMargin: '0px 0px -30px 0px'
+    threshold: 0.2,
+    rootMargin: '0px 0px -50px 0px'
   });
 
   document.querySelectorAll('.scroll-reveal').forEach(el => observer.observe(el));
   
-  // Add celebratory burst when reaching ending
-  const endingSection = document.getElementById('ending');
-  if (endingSection) {
-    const endingObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          createCelebrationBurst();
-          endingObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.5 });
-    endingObserver.observe(endingSection);
+  // Create celebration burst for any section
+  function createSectionBurst(section) {
+    const symbols = ['♡', '♥', '✦', '✧', '🌸', '✿', '❀', '⭐', '✨'];
+    const rect = section.getBoundingClientRect();
+    const centerX = rect.left + rect.width / 2;
+    const centerY = rect.top + rect.height / 2;
+    
+    for (let i = 0; i < 25; i++) {
+      setTimeout(() => {
+        const el = document.createElement('div');
+        el.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+        const angle = (i / 25) * Math.PI * 2;
+        const distance = 100 + Math.random() * 150;
+        const startX = centerX + Math.cos(angle) * distance * 0.3;
+        const startY = centerY + Math.sin(angle) * distance * 0.3;
+        el.style.cssText = `
+          position: fixed;
+          left: ${startX}px;
+          top: ${startY}px;
+          font-size: ${Math.random() * 24 + 16}px;
+          color: var(--accent-rose-soft);
+          pointer-events: none;
+          z-index: 9998;
+          animation: sectionBurst ${1.5 + Math.random() * 0.5}s ease-out forwards;
+          --tx: ${(Math.random() - 0.5) * 200}px;
+          --ty: ${-100 - Math.random() * 150}px;
+        `;
+        document.body.appendChild(el);
+        setTimeout(() => el.remove(), 2000);
+      }, i * 50);
+    }
   }
 }
 
