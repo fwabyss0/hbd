@@ -17,6 +17,46 @@
 
 <body>
 
+  <!-- ======================================================================
+       COUNTDOWN LOCK SCREEN
+       Hidden until October 28, 2026 12:00 AM NPT (2026-10-27T18:15:00Z)
+       ====================================================================== -->
+  <div id="countdown-overlay" class="countdown-overlay" role="dialog" aria-modal="true" aria-label="Birthday countdown">
+    <div class="countdown-stars" aria-hidden="true"></div>
+    <div class="countdown-grain" aria-hidden="true"></div>
+
+    <div class="countdown-content">
+      <p class="countdown-small-heading">A Little Something For You</p>
+      <h1 class="countdown-main-heading">For Asmita.</h1>
+      <p class="countdown-message">Some things are worth waiting for.</p>
+
+      <div class="countdown-timer" aria-live="polite" aria-label="Countdown to birthday">
+        <div class="timer-block">
+          <span class="timer-number" id="countdown-days">00</span>
+          <span class="timer-label">Days</span>
+        </div>
+        <span class="timer-separator">:</span>
+        <div class="timer-block">
+          <span class="timer-number" id="countdown-hours">00</span>
+          <span class="timer-label">Hours</span>
+        </div>
+        <span class="timer-separator">:</span>
+        <div class="timer-block">
+          <span class="timer-number" id="countdown-minutes">00</span>
+          <span class="timer-label">Minutes</span>
+        </div>
+        <span class="timer-separator">:</span>
+        <div class="timer-block">
+          <span class="timer-number" id="countdown-seconds">00</span>
+          <span class="timer-label">Seconds</span>
+        </div>
+      </div>
+
+      <p class="countdown-footer">Not yet. Your little surprise is waiting. ♡</p>
+      <p class="countdown-signature">— Abyss</p>
+    </div>
+  </div>
+
     <!-- Floating Hearts Background -->
     <div class="love-hearts-bg" aria-hidden="true">
       <span class="love-heart">♡</span>
