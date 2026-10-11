@@ -516,8 +516,9 @@ function initMusicPlayer() {
         const gain = audioCtx.createGain();
         osc.type = 'sine';
         osc.frequency.setValueAtTime(freq, time);
+        // Increased volume from 0.1 to 0.25 for louder tune
         gain.gain.setValueAtTime(0.001, time);
-        gain.gain.exponentialRampToValueAtTime(0.1, time + 0.03);
+        gain.gain.exponentialRampToValueAtTime(0.25, time + 0.03);
         gain.gain.exponentialRampToValueAtTime(0.001, time + lengths[index]);
         osc.connect(gain);
         gain.connect(audioCtx.destination);
