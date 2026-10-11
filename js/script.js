@@ -4,6 +4,7 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
+  initNavToggle();
   initTypewriter();
   initInvitation();
   initImageFallbacks();
@@ -12,6 +13,37 @@ document.addEventListener('DOMContentLoaded', () => {
   initMusicPlayer();
   initSmoothScroll();
 });
+
+/* ==========================================================================
+   NAV TOGGLE FOR MOBILE
+   ========================================================================== */
+function initNavToggle() {
+  const toggleBtn = document.getElementById('nav-toggle-btn');
+  const navLinks = document.querySelector('.nav-links');
+  if (!toggleBtn || !navLinks) return;
+  
+  toggleBtn.addEventListener('click', () => {
+    const isOpen = navLinks.classList.toggle('open');
+    toggleBtn.classList.toggle('active');
+    toggleBtn.setAttribute('aria-expanded', isOpen);
+  });
+  
+  navLinks.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      toggleBtn.classList.remove('active');
+      toggleBtn.setAttribute('aria-expanded', 'false');
+    });
+  });
+  
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.site-nav') && navLinks.classList.contains('open')) {
+      navLinks.classList.remove('open');
+      toggleBtn.classList.remove('active');
+      toggleBtn.setAttribute('aria-expanded', 'false');
+    }
+  });
+}
 
 /* ==========================================================================
    0. TYPEWRITER BIRTHDAY BANNER
