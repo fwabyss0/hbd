@@ -621,52 +621,140 @@ function initScrollAnimations() {
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (prefersReducedMotion) return;
 
-  const animatedElements = [
-    '.hero-content',
-    '.hero-portrait-wrapper',
-    '.story-body',
-    '.collection-card',
-    '.poster-item',
-    '.wish-card',
-    '.letter-paper',
-    '.ending-portrait-wrap',
-    '.ending-message'
-  ];
+  // Hero content
+  const heroContent = document.querySelector('.hero-content');
+  const heroPortrait = document.querySelector('.hero-portrait-wrapper');
+  
+  if (heroContent) {
+    heroContent.classList.add('scroll-reveal');
+    heroContent.style.opacity = '0';
+    heroContent.style.transform = 'translateX(-50px)';
+    heroContent.style.transition = 'opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1)';
+  }
+  
+  if (heroPortrait) {
+    heroPortrait.classList.add('scroll-reveal');
+    heroPortrait.style.opacity = '0';
+    heroPortrait.style.transform = 'translateX(50px) scale(0.9)';
+    heroPortrait.style.transition = 'opacity 1s cubic-bezier(0.16, 1, 0.3, 1) 0.2s, transform 1s cubic-bezier(0.16, 1, 0.3, 1) 0.2s';
+  }
 
-  animatedElements.forEach(selector => {
-    document.querySelectorAll(selector).forEach(el => {
-      el.classList.add('scroll-reveal');
-      el.style.opacity = '0';
-      el.style.transform = 'translateY(40px)';
-      el.style.transition = 'opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1)';
-    });
+  // Story book pages
+  const storyBody = document.querySelector('.story-body');
+  const bookPages = document.querySelectorAll('.book-page');
+  
+  if (storyBody) {
+    storyBody.classList.add('scroll-reveal');
+    storyBody.style.opacity = '0';
+    storyBody.style.transform = 'translateY(50px) rotate(-2deg)';
+    storyBody.style.transition = 'opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1)';
+  }
+  
+  bookPages.forEach((page, i) => {
+    page.classList.add('scroll-reveal');
+    page.style.opacity = '0';
+    page.style.transform = `translateY(30px) rotate(${i % 2 === 0 ? -3 : 3}deg)`;
+    page.style.transition = `opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1) ${i * 0.15}s, transform 0.7s cubic-bezier(0.16, 1, 0.3, 1) ${i * 0.15}s`;
   });
 
-  // Staggered gallery animation
-  document.querySelectorAll('.poster-item').forEach((item, i) => {
-    item.style.transitionDelay = `${i * 0.08}s`;
+  // Gallery items with stagger
+  const posterItems = document.querySelectorAll('.poster-item');
+  posterItems.forEach((item, i) => {
+    item.classList.add('scroll-reveal');
+    item.style.opacity = '0';
+    item.style.transform = `translateY(40px) rotate(${(i % 4 - 1.5) * 2}deg) scale(0.9)`;
+    item.style.transition = `opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1) ${i * 0.1}s, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1) ${i * 0.1}s`;
   });
 
-  // Staggered wishes animation
-  document.querySelectorAll('.wish-card').forEach((card, i) => {
-    card.style.transitionDelay = `${i * 0.1}s`;
+  // Wish cards with bounce effect
+  const wishCards = document.querySelectorAll('.wish-card');
+  wishCards.forEach((card, i) => {
+    card.classList.add('scroll-reveal');
+    card.style.opacity = '0';
+    card.style.transform = `translateY(60px) scale(0.8)`;
+    card.style.transition = `opacity 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) ${i * 0.12}s, transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) ${i * 0.12}s`;
   });
 
+  // Letter section
+  const letterPaper = document.querySelector('.letter-paper');
+  if (letterPaper) {
+    letterPaper.classList.add('scroll-reveal');
+    letterPaper.style.opacity = '0';
+    letterPaper.style.transform = 'perspective(1000px) rotateY(-15deg) translateY(40px)';
+    letterPaper.style.transition = 'opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1)';
+  }
+
+  // Ending section
+  const endingPortrait = document.querySelector('.ending-portrait-wrap');
+  const endingMessage = document.querySelector('.ending-message');
+  
+  if (endingPortrait) {
+    endingPortrait.classList.add('scroll-reveal');
+    endingPortrait.style.opacity = '0';
+    endingPortrait.style.transform = 'scale(0.8) rotate(3deg)';
+    endingPortrait.style.transition = 'opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1)';
+  }
+  
+  if (endingMessage) {
+    endingMessage.classList.add('scroll-reveal');
+    endingMessage.style.opacity = '0';
+    endingMessage.style.transform = 'translateY(30px)';
+    endingMessage.style.transition = 'opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.3s, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.3s';
+  }
+
+  // Observer for all revealed elements
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         const el = entry.target;
         el.style.opacity = '1';
-        el.style.transform = 'translateY(0)';
+        el.style.transform = 'translateY(0) rotate(0deg) scale(1)';
         observer.unobserve(el);
       }
     });
   }, {
     threshold: 0.15,
-    rootMargin: '0px 0px -50px 0px'
+    rootMargin: '0px 0px -30px 0px'
   });
 
   document.querySelectorAll('.scroll-reveal').forEach(el => observer.observe(el));
+  
+  // Add celebratory burst when reaching ending
+  const endingSection = document.getElementById('ending');
+  if (endingSection) {
+    const endingObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          createCelebrationBurst();
+          endingObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+    endingObserver.observe(endingSection);
+  }
+}
+
+// Create celebration burst effect
+function createCelebrationBurst() {
+  const symbols = ['♡', '♥', '✦', '✧', '🌸', '✿', '❀', '⭐', '✨'];
+  for (let i = 0; i < 20; i++) {
+    setTimeout(() => {
+      const el = document.createElement('div');
+      el.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+      el.style.cssText = `
+        position: fixed;
+        top: ${Math.random() * 100}vh;
+        left: ${Math.random() * 100}vw;
+        font-size: ${Math.random() * 20 + 15}px;
+        color: var(--accent-rose-soft);
+        pointer-events: none;
+        z-index: 9998;
+        animation: celebrationBurst 2s ease-out forwards;
+      `;
+      document.body.appendChild(el);
+      setTimeout(() => el.remove(), 2000);
+    }, i * 100);
+  }
 }
 
 /* ==========================================================================
