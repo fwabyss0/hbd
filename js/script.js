@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initGalleryLightbox();
   initMusicPlayer();
   initScrollAnimations();
+  initApologyButton();
   initSmoothScroll();
 });
 
@@ -666,4 +667,46 @@ function initScrollAnimations() {
   });
 
   document.querySelectorAll('.scroll-reveal').forEach(el => observer.observe(el));
+}
+
+/* ==========================================================================
+   SECRET APOLOGY BUTTON
+   ========================================================================== */
+function initApologyButton() {
+  const forbiddenBtn = document.getElementById('forbidden-btn');
+  const overlay = document.getElementById('apology-overlay');
+  const closeBtn = document.getElementById('apology-close');
+
+  if (!forbiddenBtn || !overlay) return;
+
+  function openApology() {
+    overlay.classList.add('active');
+    overlay.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    if (closeBtn) closeBtn.focus();
+  }
+
+  function closeApology() {
+    overlay.classList.remove('active');
+    overlay.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  forbiddenBtn.addEventListener('click', openApology);
+
+  if (closeBtn) {
+    closeBtn.addEventListener('click', closeApology);
+  }
+
+  overlay.addEventListener('click', (e) => {
+    if (e.target === overlay || e.target.classList.contains('apology-backdrop')) {
+      closeApology();
+    }
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && overlay.classList.contains('active')) {
+      closeApology();
+    }
+  });
 }

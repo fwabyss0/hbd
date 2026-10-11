@@ -558,7 +558,7 @@
 
       <div class="ending-message">
         <h2 id="ending-title" class="ending-headline">
-          “I hope this year is gentle with you, full of new things to love, and kinder than you expect.”
+          "I hope this year is gentle with you, full of new things to love, and kinder than you expect."
         </h2>
 
         <p class="ending-subtext">
@@ -569,8 +569,51 @@
         <p class="ending-signature-author">Abyss ♡</p>
       </div>
 
+      <div class="forbidden-btn-wrap">
+        <button id="forbidden-btn" class="forbidden-btn" aria-label="Click if you dare">
+          <span class="forbidden-text">Do not click here</span>
+          <span class="forbidden-hearts" aria-hidden="true">♡ ♡ ♡</span>
+        </button>
+      </div>
     </div>
   </section>
+
+  <!-- ======================================================================
+       SECRET APOLOGY OVERLAY
+       Hidden apology card triggered by forbidden button
+       ====================================================================== -->
+  <div id="apology-overlay" class="apology-overlay" role="dialog" aria-modal="true" aria-hidden="true"
+    aria-labelledby="apology-title">
+    <div class="apology-backdrop"></div>
+    <div class="apology-card">
+      <div class="washi-tape" aria-hidden="true"></div>
+      <div class="apology-hearts" aria-hidden="true">♡ ♡ ♡</div>
+      <h2 id="apology-title" class="apology-title">A Small Confession</h2>
+      <div class="apology-content">
+        <p>Asmita,</p>
+        <p>
+          I know I wasn't the boyfriend you deserved. I got defensive when you needed me to listen, I let distance
+          and stubbornness turn into silence, and I made you feel alone even when we were talking.
+        </p>
+        <p>
+          You gave me so much patience and kindness, and I took it for granted. I didn't show up the way I should have,
+          and I carry that regret with me.
+        </p>
+        <p>
+          This isn't about asking for anything back. It's about owning my mistakes and telling you what I should have
+          said a long time ago: I'm sorry for being a bad boyfriend.
+        </p>
+        <p>
+          You deserved better, and you deserve better now. I hope you find the love, peace, and happiness you've always
+          deserved — with someone who knows how to cherish you properly.
+        </p>
+      </div>
+      <div class="apology-signoff">
+        <span class="apology-author">With all my regret and love, Abyss ♡</span>
+      </div>
+      <button id="apology-close" class="apology-close-btn" aria-label="Close apology">Close ♡</button>
+    </div>
+  </div>
 
   <!-- ======================================================================
        8. COMPACT FLOATING MUSIC PLAYER
