@@ -42,18 +42,19 @@ Place your real image files in the `assets/images/` folder with these filenames:
 
 | Photo Location | Filename | Description / Recommendation |
 | :--- | :--- | :--- |
-| **Hero Section** | `assets/images/hero.jpg` | Vertical portrait, warm natural lighting, face clear and unobstructed. |
-| **Gallery Card 1** | `assets/images/photo-1.jpg` | "A Rare Smile" |
-| **Gallery Card 2** | `assets/images/photo-2.jpg` | "Sunlight & Quiet Thoughts" |
-| **Gallery Card 3** | `assets/images/photo-3.jpg` | "The Unspoken Moments" |
+| **Hero Section** | `assets/images/hero.png` | Vertical portrait, warm natural lighting, face clear and unobstructed. |
+| **Gallery Card 1** | `assets/images/photo-1.mp4` | "A Rare Smile" |
+| **Gallery Card 2** | `assets/images/photo-2.mp4` | "Sunlight & Quiet Thoughts" |
+| **Gallery Card 3** | `assets/images/photo-3.jpg` | "Just Asmita" |
 | **Gallery Card 4** | `assets/images/photo-4.jpg` | "Across the Miles" |
 | **Gallery Card 5** | `assets/images/photo-5.jpg` | "When Words Were Everything" |
-| **Gallery Card 6** | `assets/images/photo-6.jpg` | "The Day We Finally Met" |
-| **Gallery Card 7** | `assets/images/photo-7.jpg` | "Quiet Grace & Strength" |
-| **Gallery Card 8** | `assets/images/photo-8.jpg` | "A Brighter Horizon" |
+| **Gallery Card 6** | `assets/images/photo-6.jpg` | "Finally In Person" |
+| **Gallery Card 7** | `assets/images/photo-7.jpg` | "Grace & Strength" |
+| **Gallery Card 8** | `assets/images/photo-8.mp4` | "A Brighter Horizon" |
 | **Closing Portrait** | `assets/images/closing.jpg` | A peaceful, gentle closing photo to end the site. |
 
-> **Graceful Fallbacks Included**: If any photograph file has not yet been placed in the folder, the site automatically renders an elegant romantic SVG illustration so that no broken links or missing image icons appear.
+> **Graceful Fallbacks Included**: If any photograph file has not yet been placed in the folder, the site automatically renders an elegant romantic SVG illustration so that no broken links or missing image icons appear. Cards 1 and 8 currently use local MP4 files; you can use MP4 files for additional cards by replacing the `<img>` element with a `<video>` element using the same classes.
+> **Photo selection note**: I cannot access your Google Drive link in this environment, so please choose the hero, gallery, and closing photos using the table above.
 
 ### 💡 Selecting Photos from Google Drive
 If you have photos on Google Drive:
@@ -80,8 +81,7 @@ Place your chosen MP3 file in:
 
 All written content is clearly commented and located inside [index.html](file:///d:/bhfx/index.html):
 - **Hero Title & Copy**: Search for `<!-- 2. BIRTHDAY HERO SECTION -->`
-- **Story Reflection**: Search for `<!-- 3. A REFLECTION ON THE STORY -->`
-- **A Small, Honest Apology**: Search for `<!-- 3.5 A SMALL, HONEST APOLOGY -->`
+- **Story Reflection book pages**: Search for `<!-- 3. A REFLECTION ON THE STORY (BOOK STYLE) -->`
 - **Gallery Titles & Notes**: Search for `<!-- 4. PHOTO GALLERY -->`
 - **Birthday Wishes**: Search for `<!-- 5. BIRTHDAY WISHES SECTION -->`
 - **Personal Letter**: Search for `<!-- 6. PERSONAL LETTER SECTION -->`
