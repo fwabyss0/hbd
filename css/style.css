@@ -2021,22 +2021,6 @@ a {
   visibility: visible;
 }
 
-/* --- 14. FOOTER --- */
-.site-footer {
-  background: #140F11;
-  color: var(--text-light-muted);
-  padding: 3rem 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
-  text-align: center;
-  font-size: 0.82rem;
-}
-
-.footer-note {
-  margin-top: 0.5rem;
-  font-size: 0.75rem;
-  opacity: 0.6;
-}
-
 /* --- 15. REDUCED MOTION QUERY --- */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
@@ -2048,4 +2032,18 @@ a {
   .polaroid-card:nth-child(n) {
     transform: none !important;
   }
+}
+
+/* --- 16. SCROLL REVEAL ANIMATIONS --- */
+.scroll-reveal {
+  will-change: opacity, transform;
+}
+
+.hero-floating-badge {
+  animation: bannerFloat 3.5s ease-in-out infinite, gentleFloat 4s ease-in-out infinite;
+}
+
+@keyframes gentleFloat {
+  0%, 100% { transform: rotate(-3deg) translateY(0); }
+  50% { transform: rotate(-3deg) translateY(-8px); }
 }

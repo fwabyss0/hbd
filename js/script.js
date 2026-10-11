@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initStoryBook();
   initGalleryLightbox();
   initMusicPlayer();
+  initScrollAnimations();
   initSmoothScroll();
 });
 
@@ -609,4 +610,60 @@ function initSmoothScroll() {
       }
     });
   });
+}
+
+/* ==========================================================================
+   SCROLL-TRIGGERED ANIMATIONS
+   Makes every section reveal with surprise as user scrolls
+   ========================================================================== */
+function initScrollAnimations() {
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (prefersReducedMotion) return;
+
+  const animatedElements = [
+    '.hero-content',
+    '.hero-portrait-wrapper',
+    '.story-body',
+    '.collection-card',
+    '.poster-item',
+    '.wish-card',
+    '.letter-paper',
+    '.ending-portrait-wrap',
+    '.ending-message'
+  ];
+
+  animatedElements.forEach(selector => {
+    document.querySelectorAll(selector).forEach(el => {
+      el.classList.add('scroll-reveal');
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(40px)';
+      el.style.transition = 'opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1)';
+    });
+  });
+
+  // Staggered gallery animation
+  document.querySelectorAll('.poster-item').forEach((item, i) => {
+    item.style.transitionDelay = `${i * 0.08}s`;
+  });
+
+  // Staggered wishes animation
+  document.querySelectorAll('.wish-card').forEach((card, i) => {
+    card.style.transitionDelay = `${i * 0.1}s`;
+  });
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const el = entry.target;
+        el.style.opacity = '1';
+        el.style.transform = 'translateY(0)';
+        observer.unobserve(el);
+      }
+    });
+  }, {
+    threshold: 0.15,
+    rootMargin: '0px 0px -50px 0px'
+  });
+
+  document.querySelectorAll('.scroll-reveal').forEach(el => observer.observe(el));
 }
